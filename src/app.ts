@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
 import cors from 'cors';
 import pino from 'pino-http';
 import helmet from 'helmet';
@@ -15,9 +15,8 @@ const corsOptions: CorsOptions = {
 const app = express();
 
 app.use(cors(corsOptions));
-
 app.use(helmet());
-// app.use(pino());
+app.use(pino());
 app.use(express.json());
 
 app.use(indexRouter);
